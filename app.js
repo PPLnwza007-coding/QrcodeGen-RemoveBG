@@ -13,8 +13,15 @@ function getFilename(url) {
   catch { return 'qrcode.png'; }
 }
 
+function normalizeUrl(raw) {
+  var url = raw.trim();
+  if (!url) return '';
+  if (!/^https?:\/\//i.test(url)) url = 'https://' + url;
+  return url;
+}
+
 function generate() {
-  var url = urlInput.value.trim();
+  var url = normalizeUrl(urlInput.value);
   if (!url) return;
 
   var size   = parseInt(sizeSelect.value);
@@ -72,7 +79,7 @@ marginRange.addEventListener('input', function() {
 dlBtn.addEventListener('click', function() {
   var a = document.createElement('a');
   a.href = canvas.toDataURL('image/png');
-  a.download = getFilename(urlInput.value.trim());
+  a.download = getFilename(normalizeUrl(urlInput.value));
   a.click();
 });
 
