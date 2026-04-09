@@ -236,6 +236,13 @@ input[type="range"] { width: 100%; accent-color: var(--accent); cursor: pointer;
 }
 .bg-loading.hidden { display: none; }
 
+.bg-pct {
+  font-size: 20px;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  color: var(--accent);
+}
+
 .spinner {
   width: 20px;
   height: 20px;
@@ -246,7 +253,6 @@ input[type="range"] { width: 100%; accent-color: var(--accent); cursor: pointer;
 }
 @keyframes spin { to { transform: rotate(360deg); } }
 
-/* Action button */
 .action-btn {
   background: var(--accent);
   color: #000;
